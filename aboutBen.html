@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes moveAroundScreen {
+      0%   { top: 0; left: 0; }
+      25%  { top: 0; left: 100%; transform: translateX(-100%); }
+      50%  { top: 100%; left: 100%; transform: translate(-100%, -100%); }
+      75%  { top: 100%; left: 0; transform: translateY(-100%); }
+      100% { top: 0; left: 0; }
+    }
+
+    .circle-orbit {
+      animation: moveAroundScreen 20s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-lime-300 font-sans relative">
+
+  <!-- Orbiting Circle -->
+  <div class="fixed w-16 h-16 bg-lime-500 rounded-full opacity-20 circle-orbit z-0"></div>
+
+  <!-- Sticky Header -->
+  <header class="fixed top-0 w-full bg-gray-800 text-lime-300 shadow-md z-50">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">About Me</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="#about" class="hover:text-lime-100">About</a>
+        <a href="#contact" class="hover:text-lime-100">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="pt-28 max-w-3xl mx-auto p-6">
+    <div class="bg-gray-800 shadow-md rounded-lg p-8">
+      <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center">
+  <!-- Profile Image with Hover Effect -->
+    <div class="relative w-32 h-32 mb-4">
+  <!-- Default Image -->
+    <img 
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr2g0j5vtnkAILmrPCtpyRaeEK7iaBek9sXw&s" 
+      alt="https://media.tenor.com/goY0VJNhQSIAAAAe/bleh-bleh-cat.png" 
+      class="rounded-full w-full h-full object-cover border-4 border-lime-400 transition-opacity duration-500 hover:opacity-0"
+    />
+    <!-- Hover Image (Replace URL below with your desired image) -->
+    <img 
+      src="https://via.placeholder.com/150/ff00ff" 
+      alt="Hover Photo" 
+      class="absolute top-0 left-0 rounded-full w-full h-full object-cover border-4 border-lime-400 opacity-0 hover:opacity-100 transition-opacity duration-500"
+    />
+  </div>
+
+        <h2 class="text-3xl font-bold mb-2">Benjamin Medrano</h2>
+        <p class="text-lime-400 text-center mb-4">Hello! I'm a student with interests in conservation science, photography, art, programming, and engineering.</p>
+      </div>
+
+      <div id="about" class="mt-6">
+        <h2 class="text-2xl font-semibold mb-2">About Me</h2>
+        <p class="text-lime-200 leading-relaxed mb-4">
+          
+          I love watching movies and skating in my free time.
+          I'm an only child who lives on the south side of Chicago.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <img src="https://via.placeholder.com/200x150" alt="Image 1" class="rounded-lg shadow-sm border border-lime-400">
+          <img src="https://via.placeholder.com/200x150" alt="Image 2" class="rounded-lg shadow-sm border border-lime-400">
+          <img src="https://via.placeholder.com/200x150" alt="Image 3" class="rounded-lg shadow-sm border border-lime-400">
+        </div>
+      </div>
+
+      <div id="contact" class="mt-6">
+        <h2 class="text-2xl font-semibold mb-2">Contact</h2>
+        <ul class="text-lime-300 underline">
+          <li><a href="mailto:your@email.com">your@email.com</a></li>
+          <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
