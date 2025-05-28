@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Me - Mexico Theme</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap');
+
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #c62828, #f9a825);
+    font-family: 'Montserrat', sans-serif;
+    color: #3e2723;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: #00695c;
+    text-shadow: 2px 2px #ef6c00;
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #bf360c;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .content {
+    background: #fff3e0;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    max-width: 700px;
+    padding: 30px 40px;
+    margin-top: 40px;
+    line-height: 1.6;
+    color: #4e342e;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .baby-pic-section {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  img {
+    max-width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #bf360c;
+    border: 6px solid #f9a825;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #c62828;
+  }
+
+  /* Decorative Mexican Pattern Bar */
+  .pattern-bar {
+    width: 100%;
+    height: 40px;
+    background: repeating-linear-gradient(
+      45deg,
+      #bf360c,
+      #bf360c 10px,
+      #f9a825 10px,
+      #f9a825 20px
+    );
+    margin-top: 40px;
+    border-radius: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+    .content {
+      padding: 20px;
+      margin-top: 20px;
+    }
+    img {
+      max-width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <h1>About Me</h1>
+  <h2>Little about me</h2>
+
+
+
+  <div class="content">
+    <p>Hello! My name is <strong>Brian Hernandez</strong>. I love exploring Mexican culture and sharing my passion for my religion and my love for my family.</p>
+    <p>My favorite hobbies include listening to music, gaming, and being with my family</p>
+    <p>My goal is to create a safe and welcoming envirnment for those who where never able to express their emotions throughout their life.</p>
+  </div>
+
+  <div class="baby-pic-section">
+    <p>Here’s a photo of me as a baby!</p>
+    <img src="Baby photo here" alt="Baby Picture" />
+  </div>
+
+  <div class="pattern-bar"></div>
+
+<h2>My Favorite Soccer Players</h2>
+<div class="content" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+  <!-- Lionel Messi -->
+  <div style="flex: 1 1 300px; max-width: 320px; text-align: center;">
+    <a href="https://en.wikipedia.org/wiki/Lionel_Messi" target="_blank" style="text-decoration: none; color: inherit;">
+      <img src="messi.jpg" alt="Lionel Messi" style="width: 100%; border-radius: 15px; border: 5px solid #f9a825; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" />
+      <h3 style="margin: 10px 0 5px;">Lionel Messi</h3>
+    </a>
+    <p>The GOAT 🐐. His creativity and control have inspired millions around the world, including me.</p>
+  </div>
+
+  <!-- Javier Hernández -->
+  <div style="flex: 1 1 300px; max-width: 320px; text-align: center;">
+    <a href="https://en.wikipedia.org/wiki/Javier_Hern%C3%A1ndez" target="_blank" style="text-decoration: none; color: inherit;">
+      <img src="chicharito.jpg" alt="Chicharito Hernández" style="width: 100%; border-radius: 15px; border: 5px solid #f9a825; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" />
+      <h3 style="margin: 10px 0 5px;">Javier “Chicharito” Hernández</h3>
+    </a>
+    <p>A Mexican icon 🇲🇽. His energy and love for the game make him unforgettable to fans everywhere.</p>
+  </div>
+
+</div>
+
+<h2>My Home – Guerrero, Mexico</h2>
+<div class="content" style="text-align: center;">
+  <a href="https://en.wikipedia.org/wiki/Guerrero" target="_blank" style="text-decoration: none; color: inherit;">
+    <img src="guerrero.jpg" alt="Guerrero, Mexico" style="width: 100%; max-width: 700px; border-radius: 15px; border: 5px solid #f9a825; box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-bottom: 15px;" />
+  </a>
+  <p><strong>Guerrero</strong> is a beautiful coastal state in southern Mexico known for its beaches, mountains, and rich indigenous heritage. I’m proud to call it home!</p>
+  <p>From the stunning bay of Acapulco to the traditions of small towns, Guerrero is full of life, culture, and resilience.</p>
+</div>
+
+
+</body>
+</html>
