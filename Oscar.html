@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me - 3D Background with Beaming Light</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background: #0a0a1a;
+      color: #fff;
+      position: relative;
+    }
+
+    /* 3D floating spheres background container */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      perspective: 1000px;
+      background: linear-gradient(135deg, #14142b, #1b1b3a);
+    }
+
+    /* Individual floating spheres */
+    .sphere {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 70%);
+      opacity: 0.15;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: transform;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+      box-shadow:
+        0 0 15px rgba(255, 0, 150, 0.4),
+        0 0 30px rgba(255, 0, 150, 0.2);
+    }
+
+    .sphere1 {
+      width: 150px;
+      height: 150px;
+      top: 20%;
+      left: 10%;
+      animation: float1 12s ease-in-out infinite alternate;
+    }
+
+    .sphere2 {
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 75%;
+      animation: float2 15s ease-in-out infinite alternate;
+    }
+
+    .sphere3 {
+      width: 200px;
+      height: 200px;
+      top: 70%;
+      left: 40%;
+      animation: float3 18s ease-in-out infinite alternate;
+    }
+
+    .sphere4 {
+      width: 130px;
+      height: 130px;
+      top: 40%;
+      left: 55%;
+      animation: float4 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes float1 {
+      0% { transform: translate3d(0, 0, 0) rotateY(0deg); opacity: 0.15; }
+      100% { transform: translate3d(30px, -20px, 50px) rotateY(360deg); opacity: 0.25; }
+    }
+    @keyframes float2 {
+      0% { transform: translate3d(0, 0, 0) rotateY(0deg); opacity: 0.12; }
+      100% { transform: translate3d(-40px, 25px, 40px) rotateY(-360deg); opacity: 0.3; }
+    }
+    @keyframes float3 {
+      0% { transform: translate3d(0, 0, 0) rotateY(0deg); opacity: 0.1; }
+      100% { transform: translate3d(50px, 30px, 60px) rotateY(360deg); opacity: 0.28; }
+    }
+    @keyframes float4 {
+      0% { transform: translate3d(0, 0, 0) rotateY(0deg); opacity: 0.13; }
+      100% { transform: translate3d(-30px, -25px, 45px) rotateY(-360deg); opacity: 0.22; }
+    }
+
+    /* Beaming light container */
+    .light-beams {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+      filter: brightness(1.2) drop-shadow(0 0 10px #fff);
+    }
+
+    /* Each beam */
+    .beam {
+      position: absolute;
+      width: 200px;
+      height: 120vh;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.15) 45%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0.15) 55%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-20deg);
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      will-change: transform;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+      opacity: 0.5;
+    }
+
+    /* Different beams with staggered animations */
+    .beam1 {
+      top: -10vh;
+      left: 5%;
+      animation: beamMove 8s linear infinite;
+      animation-delay: 0s;
+    }
+
+    .beam2 {
+      top: -15vh;
+      left: 40%;
+      animation: beamMove 10s linear infinite;
+      animation-delay: 3s;
+      opacity: 0.4;
+    }
+
+    .beam3 {
+      top: -12vh;
+      left: 70%;
+      animation: beamMove 12s linear infinite;
+      animation-delay: 6s;
+      opacity: 0.35;
+    }
+
+    /* Beam animation: move horizontally from left to right */
+    @keyframes beamMove {
+      0% {
+        transform: translateX(-250px) skewX(-20deg);
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateX(120vw) skewX(-20deg);
+        opacity: 0.5;
+      }
+    }
+
+    /* Content container */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 700px;
+      margin: 4rem auto;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.7);
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s ease;
+    }
+    header img:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      font-weight: 300;
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-top: 0;
+      font-style: italic;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+    }
+
+    section {
+      margin-bottom: 2.2rem;
+    }
+
+    section h2 {
+      font-weight: 600;
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    #bio p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    #skills ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #skills li {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .skill-bar {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 16px;
+      width: 100%;
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.3);
+    }
+
+    .skill-level {
+      height: 100%;
+      background: #6a11cb;
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      border-radius: 10px;
+      transition: width 1.2s ease-in-out;
+    }
+
+    #hobbies p {
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      border-left: 4px solid rgba(255,255,255,0.7);
+      padding-left: 1.1rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    #quote {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 1.2rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background">
+    <div class="sphere sphere1"></div>
+    <div class="sphere sphere2"></div>
+    <div class="sphere sphere3"></div>
+    <div class="sphere sphere4"></div>
+  </div>
+
+  <div class="light-beams">
+    <div class="beam beam1"></div>
+    <div class="beam beam2"></div>
+    <div class="beam beam3"></div>
+  </div>
+
+  <div class="container">
+    <header>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcNtYZXLbSlkPPoqecOaY7pLn6c1n1X68NA&s" alt="Profile Picture" />
+      <h1>Oscar Joseph Carmona Herrera Jr</h1>
+    </header>
+
+    <section id="bio">
+      <h2>Biography</h2>
+      <p>I am a junior at Noble Street College Prep. I am a part of the 2025 AP Computer Science Principles class. </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>
+          <div class="skill-name">Math</div>
+          <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-name">Sports</div>
+          <div class="skill-bar"><div class="skill-level" style="width: 65%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-name">Eating</div>
+          <div class="skill-bar"><div class="skill-level" style="width: 100%;"></div></div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies & Interests</h2>
+      <p>I like to play sports especially basketball and volleyball. I also like to play video games with my friends. I like math. I love to eat.</p>
+    </section>
+
+    <div id="quote">
+      “Be the best version of yourself in anything you do. You don’t have to live anybody else’s story.” – Stephen Curry🐐
+    </div>
+  </div>
+
+</body>
+</html>
